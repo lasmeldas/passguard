@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passguard"
+version = "0.1.0"
+description = "Offline password strength analyzer and secure password generator"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "lasmeldas" }]
+keywords = ["security", "password", "entropy", "cli"]
+
+[project.scripts]
+passguard = "passguard.cli:main"
+
+[tool.setuptools]
+packages = ["passguard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
