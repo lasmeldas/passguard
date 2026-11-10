@@ -9,7 +9,7 @@ description = "Offline password strength analyzer and secure password generator"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "lasmeldas" }]
+authors = [{ name = "Beamlak (lasmeldas)" }]
 keywords = ["security", "password", "entropy", "cli"]
 
 [project.scripts]

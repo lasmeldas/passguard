@@ -17,6 +17,8 @@
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
+<p align="center">Built by <a href="https://github.com/lasmeldas"><b>Beamlak</b></a></p>
+
 <p align="center"><b>Find out how long a password would really last, and why, without sending it anywhere.</b></p>
 
 <p align="center">
@@ -114,3 +116,7 @@ Issues and pull requests are welcome.
 ## License
 
 [MIT](LICENSE)
+
+---
+
+<p align="center">Built by <a href="https://github.com/lasmeldas"><b>Beamlak</b></a> &middot; <a href="https://github.com/lasmeldas">github.com/lasmeldas</a></p>
