@@ -11,7 +11,7 @@ import re
 import secrets
 import string
 from dataclasses import asdict, dataclass, field
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 # Rough speed of an offline attack on a fast hash using a GPU rig.
 GUESSES_PER_SECOND = 1e10
@@ -60,6 +60,7 @@ class Analysis:
     crack_time: str
     issues: List[str] = field(default_factory=list)
     suggestions: List[str] = field(default_factory=list)
+    breach_count: Optional[int] = None  # None means "not checked"
 
     def to_dict(self) -> Dict[str, object]:
         return asdict(self)
@@ -223,3 +224,18 @@ def generate(length: int = 16, symbols: bool = True) -> str:
     chars += [secrets.choice(alphabet) for _ in range(length - len(chars))]
     secrets.SystemRandom().shuffle(chars)
     return "".join(chars)
+
+
+def apply_breach_count(result: Analysis, count: int) -> Analysis:
+    """Fold a breach-lookup result into an analysis.
+
+    A password found in public breach lists is unsafe however random it looks.
+    """
+    result.breach_count = count
+    if count > 0:
+        result.issues.append(f"Found in known data breaches {count:,} times.")
+        result.rating = "Compromised"
+        result.score = 0
+        result.crack_time = "instantly (it is in public breach lists)"
+        result.suggestions.insert(0, "Stop using this password everywhere and choose a new one.")
+    return result

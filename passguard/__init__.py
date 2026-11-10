@@ -1,6 +1,7 @@
 """passguard: a small, offline password strength analyzer and generator."""
 
-from .core import Analysis, analyze, generate
+from .breach import BreachCheckError, pwned_count
+from .core import Analysis, analyze, apply_breach_count, generate
 
-__all__ = ["Analysis", "analyze", "generate"]
-__version__ = "0.1.0"
+__all__ = ["Analysis", "BreachCheckError", "analyze", "apply_breach_count", "generate", "pwned_count"]
+__version__ = "0.2.0"
